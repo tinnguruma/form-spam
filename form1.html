@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>form1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        function count() {
+            var thisCount = $("#count").html();
+            thisCount = Number(thisCount);
+            thisCount = thisCount + 1;
+            $("#count").html(thisCount);
+        }
+        window.addEventListener("load", function () {
+            document.getElementById("send_mixdata").addEventListener("click", function () {
+                var formDatas = document.getElementById("userinfo2");
+                var mixedDatas = new FormData(formDatas);
+                var XHR = new XMLHttpRequest();
+                XHR.open("POST", "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfmLRwTiklb55-sHL-CBNNhu5GlDNEOVBjfP6pskSi_F8gPtw/formResponse", true);
+                XHR.send(mixedDatas);
+                XHR.onreadystatechange = function () {
+                    if (XHR.readyState == 4 && XHR.status == 200) {
+                        // POST送信した結果を表示する
+                        document.getElementById("mixdata_response").innerHTML = XHR.responseText;
+                    }
+                };
+            }, false);
+        }, false);
+    </script>
+</head>
+
+<body>
+    <form id="userinfo2">
+        <p>
+            <label for="item1">年齢</label>
+            <input name="entry.188582006" value="13歳" id="item1">
+            <label for="item1">いる(期間)　orいない(豊富)</label>
+            <input name="entry.33704003" value="test" id="item2">
+            <label for="item1">どんな時が恋(推しポイント)</label>
+            <input name="entry.1991454343" value="test" id="item3">
+            <label for="item1">どんな時に愛してる</label>
+            <input name="entry.1779701251" value="test" id="item4">
+            <label for="item1">どこが好きだった</label>
+            <input name="entry.1409050916" value="test" id="item4">
+            <label for="item1">恋と愛の違いについてあなたの考え</label>
+            <input name="entry.862787740" value="test" id="item4">
+            <label for="item1">(恋したこと)あるorない</label>
+            <input name="entry.1983605985" value="ない" id="item4">
+            <label for="item1">固定</label>
+            <input name="entry.999254472" value="こちらこそ！" id="item4">
+
+
+        </p>
+    </form>
+    <p>
+        <button type="button" id="send_mixdata" onClick="count();">送信！！</button>
+    </p>
+    <div id="mixdata_response">
+        <!-- 結果を出力する -->
+    </div>
+
+    <br>
+    <p>カウンター：<span id="count">0</span></p>
+    見えないけどこの数分だけ送信されてます
+    <br>
+    連打しすぎると送れないので注意(四回/秒くらいなら大丈夫)
+    <br>
+    <br>
+    <br>
+
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/c88878e1d79594bda5ed00b1a464c9e7"></script>
+    <!-- admax -->
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/c88878e1d79594bda5ed00b1a464c9e7"></script>
+    <!-- admax -->
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/c88878e1d79594bda5ed00b1a464c9e7"></script>
+    <!-- admax -->
+
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/e45be90a86e031ea2b12bd34aba86a9f"></script>
+    <!-- admax -->
+</body>
+
+</html>
